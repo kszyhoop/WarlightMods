@@ -26,6 +26,15 @@ function Client_PresentConfigureUI(rootParent)
 	local initialValue = Mod.Settings.SelectedUnitType
 	local vert = UI.CreateVerticalLayoutGroup(rootParent);
 	local n = 0
+	
+	local specialUnitTypes = {	
+			Mod.Settings.SpecialUnitTypeBoss1,
+			Mod.Settings.SpecialUnitTypeBoss2,	
+			Mod.Settings.SpecialUnitTypeBoss3,
+			Mod.Settings.SpecialUnitTypeBoss4,
+			Mod.Settings.SpecialUnitTypeCommander
+		}
+	
 	for _, unitType in pairs(specialUnitTypes) do
 		local cb = UI.CreateCheckBox(vert).SetText(unitType).SetIsChecked(initialValue == unitType)
 		cb.SetOnValueChanged(
