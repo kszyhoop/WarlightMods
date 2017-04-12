@@ -1,6 +1,6 @@
 require("InitMod")
 
-function CheckboxOnValueChanged(sender, value)
+function CheckboxOnValueChanged(sender, value, checkBoxGroup)
 	
 	if value then    --- uncheck other checkboxes
 		for  _, checkBox in pairs(checkBoxes) do
@@ -22,11 +22,9 @@ end
 
 function Client_PresentConfigureUI(rootParent)
 	InitializeIfNeeded()
-	checkBoxes = { }
-	local initialValue = Mod.Settings.SelectedUnitType
-	local vert = UI.CreateVerticalLayoutGroup(rootParent);
-	local n = 0
 	
+	unitTypeCheckBoxGroup = { }
+	local tableIndex = 0
 	local specialUnitTypes = {	
 			Mod.Settings.SpecialUnitTypeBoss1,
 			Mod.Settings.SpecialUnitTypeBoss2,	
@@ -34,16 +32,19 @@ function Client_PresentConfigureUI(rootParent)
 			Mod.Settings.SpecialUnitTypeBoss4,
 			Mod.Settings.SpecialUnitTypeCommander
 		}
-	
+
+	local vert = UI.CreateVerticalLayoutGroup(rootParent);
+	UI.CreateLabel(vert).SetText('Special unit type:');
 	for _, unitType in pairs(specialUnitTypes) do
-		local cb = UI.CreateCheckBox(vert).SetText(unitType).SetIsChecked(initialValue == unitType)
+		local cb = UI.CreateCheckBox(vert).SetText(unitType).SetIsChecked(Mod.Settings.SelectedUnitType == unitType)
 		cb.SetOnValueChanged(
 			function(value)
-				CheckboxOnValueChanged(cb, value)
+				CheckboxOnValueChanged(cb, value, unitTypeCheckBoxGroup)
 			end
 		)
-		checkBoxes[n] = cb
-		n = n + 1
-	end	
+		unitTypeCheckBoxGroup[tableIndex] = cb
+		tableIndex = tableIndex + 1
+	end
+
 end
 
