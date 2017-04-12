@@ -22,19 +22,21 @@ function CreateUnit(playerId)
 		[Mod.Settings.SpecialUnitTypeBoss4] = WL.Boss4,
 		[Mod.Settings.SpecialUnitTypeCommander] = WL.Commander
 	}
-	local unitType = Mod.Settings.SelectedUnitType; 
-	local unit = unitTypes[unitType].Create(playerId)
-
-	--local params = 
-	--{
-	--	["Power"] = 22,
-	--	["Stage"] = 2
-	--}
 	
-	-- not supported by Warlight
-	--for key, value in pairs(unitParams) do
-	--	unit[key] = value
-	--end
+	local specialUnitArgs = 
+	{
+		[Mod.Settings.SpecialUnitTypeBoss1] = nil,
+		[Mod.Settings.SpecialUnitTypeBoss2] = nil,
+		[Mod.Settings.SpecialUnitTypeBoss3] = {1},
+		[Mod.Settings.SpecialUnitTypeBoss4] = nil,
+		[Mod.Settings.SpecialUnitTypeCommander] = nil	
+	}
+	
+	local unitType = Mod.Settings.SelectedUnitType; 
+	local args = specialUnitArgs[unitType] 
+	if (args ~= nil) then
+		args = table.unpack(args)
+	end
+	local unit = unitTypes[unitType].Create(playerId, args)
 	return unit
-
 end
