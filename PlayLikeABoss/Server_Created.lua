@@ -8,7 +8,6 @@ function Server_Created(game, settings)
 		else
 			newMessage = modMessage .. "\n" .. currentMessage
 		end
-		message = newMessage .. "\nPlayLikeABoss mod is enabled but not running. This mod can run only with no more than 3 starts per player."
-		settings.PersonalMessage = message
+		settings.PersonalMessage = newMessage
 	end
 end

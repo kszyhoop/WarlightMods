@@ -21,7 +21,6 @@ end
 
 
 function Client_PresentConfigureUI(rootParent)
-	print "PresentConfigureUI"
 	InitializeIfNeeded()
 	checkBoxes = { }
 	local initialValue = Mod.Settings.SelectedUnitType
@@ -36,9 +35,7 @@ function Client_PresentConfigureUI(rootParent)
 			Mod.Settings.SpecialUnitTypeCommander
 		}
 	
-	print ("przed forem")
 	for _, unitType in pairs(specialUnitTypes) do
-		print ("robie fora")
 		local cb = UI.CreateCheckBox(vert).SetText(unitType).SetIsChecked(initialValue == unitType)
 		cb.SetOnValueChanged(
 			function(value)
@@ -48,6 +45,5 @@ function Client_PresentConfigureUI(rootParent)
 		checkBoxes[n] = cb
 		n = n + 1
 	end	
-	print "po forze"
 end
 
