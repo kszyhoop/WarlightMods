@@ -3,14 +3,14 @@ require("InitMod")
 function CheckboxOnValueChanged(sender, value, checkBoxGroup)
 	
 	if value then    --- uncheck other checkboxes
-		for  _, checkBox in pairs(checkBoxes) do
+		for  _, checkBox in pairs(checkBoxGroup) do
 			if checkBox ~= sender and checkBox.GetIsChecked() then 
 				checkBox.SetIsChecked(false)
 			end
 		end
 	else 
 		local isAnythingEnabled = false;
-		for _, checkBox in pairs(checkBoxes) do
+		for _, checkBox in pairs(checkBoxGroup) do
 			isAnythingEnabled = isAnythingEnabled or checkBox.GetIsChecked()
  		end
 		if not isAnythingEnabled then

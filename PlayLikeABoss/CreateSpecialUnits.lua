@@ -14,7 +14,6 @@ function CreateSpecialUnits(game, standing)
 end
 
 function CreateUnit(playerId)
-	print 'createunit'
 	local unitTypes = 
 	{
 		[Mod.Settings.SpecialUnitTypeBoss1] = WL.Boss1,
@@ -23,7 +22,6 @@ function CreateUnit(playerId)
 		[Mod.Settings.SpecialUnitTypeBoss4] = WL.Boss4,
 		[Mod.Settings.SpecialUnitTypeCommander] = WL.Commander
 	}
-
 	local unitType = Mod.Settings.SelectedUnitType; 
 	local unit = unitTypes[unitType].Create(playerId)
 
