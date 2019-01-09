@@ -7,4 +7,5 @@ function Server_GameCustomMessage(game, playerID, payload, setReturnTable)
 		--playerGameData[playerID].InitialPopupDisplayed = true;
 		--Mod.PlayerGameData = playerGameData;
 	--end
+	setReturnTable({});
 end
