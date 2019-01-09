@@ -5,7 +5,7 @@ function Client_GameRefresh(game)
 	--	UI.Alert("This game includes Swap Picks Mod - you pick for your opponent. Good luck :)")
 		local payload = {};
 		payload.Message = "InitialPopupDisplayed";
-	--	game.SendGameCustomMessage("Please wait... ", payload, callback);
+		game.SendGameCustomMessage("Please wait... ", payload, callback);
 	end
 end
 
