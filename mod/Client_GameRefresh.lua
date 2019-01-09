@@ -6,7 +6,7 @@ function Client_GameRefresh(game)
 		local payload = {};
 		payload.Message = "InitialPopupDisplayed";
 		game.SendGameCustomMessage("Please wait... ", payload, callback);
-	--end
+	end
 end
 
 function callback(response)
