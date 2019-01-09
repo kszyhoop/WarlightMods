@@ -4,7 +4,7 @@ function Server_GameCustomMessage(game, playerID, payload, setReturnTable)
 		if (playerGameData[playerID] == nil) then
 			playerGameData[playerID] = { };
 		end;
-		playerGameData[playerID].InitialPopupDisplayed = true;
-		Mod.PlayerGameData = playerGameData;
+		--playerGameData[playerID].InitialPopupDisplayed = true;
+		--Mod.PlayerGameData = playerGameData;
 	end
 end
