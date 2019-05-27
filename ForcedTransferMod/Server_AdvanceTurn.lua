@@ -2,4 +2,5 @@ function Server_AdvanceTurn_Order(game, order, result, skipThisOrder, addNewOrde
 	if order.proxyType ~= 'GameOrderAttackTransfer' then return end;
 	result.ActualArmies = order.NumArmies;
 	result.DefendingArmiesKilled = WL.Armies.Create(2);
+	result.IsAttack = true;
 end
